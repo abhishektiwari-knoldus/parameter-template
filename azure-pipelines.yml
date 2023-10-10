@@ -35,11 +35,12 @@
 
 trigger: none
 
-pool:
-  myagent
+
 
 stages:
 - stage: deploy_dev
+  pool:
+    myagent  
   jobs:
   - template: webapp-template.yml
     parameters:
@@ -47,6 +48,8 @@ stages:
       appName: 'MyWebAppDev'
 
 - stage: deploy_staging
+  pool:
+    myagent
   jobs:
   - template: webapp-template.yml
     parameters:
@@ -54,6 +57,8 @@ stages:
       appName: 'MyWebAppStaging'
 
 - stage: deploy_production
+  pool:
+    myagent
   jobs:
   - template: webapp-template.yml
     parameters:
