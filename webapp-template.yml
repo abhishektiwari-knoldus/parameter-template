@@ -26,5 +26,4 @@ jobs:
   steps:
   - script: |
       echo "Building and deploying ${{ parameters.appName }} to ${{ parameters.environment }}"
-      # Add your build and deployment steps here
     displayName: 'Build and Deploy'
