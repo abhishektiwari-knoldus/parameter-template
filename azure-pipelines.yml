@@ -22,7 +22,8 @@
 
 # File: azure-pipelines.yml
 trigger: none
-
+pool:
+  myagent
 
 extends:
   template: simple-param.yml
