@@ -1,21 +1,30 @@
-#azure-pipeline.yml
+# #azure-pipeline.yml
 
+# trigger: none
+
+# pool:
+#   myagent
+
+# extends:
+#   template: testing-template.yml
+#   parameters:
+#     testSet:
+#     - job: positive_test
+#       templateContext:
+#         expectedHTTPResponseCode: 200
+#       steps:
+#       - script: echo "Run positive test" 
+#     - job: negative_test
+#       templateContext:
+#         expectedHTTPResponseCode: 501
+#       steps:
+#       - script: echo "Run negative test"
+
+# File: azure-pipelines.yml
 trigger: none
 
-pool:
-  myagent
 
 extends:
-  template: testing-template.yml
+  template: simple-param.yml
   parameters:
-    testSet:
-    - job: positive_test
-      templateContext:
-        expectedHTTPResponseCode: 200
-      steps:
-      - script: echo "Run positive test" 
-    - job: negative_test
-      templateContext:
-        expectedHTTPResponseCode: 501
-      steps:
-      - script: echo "Run negative test"
+      yesNo: false # set to a non-boolean value to have the build fail
