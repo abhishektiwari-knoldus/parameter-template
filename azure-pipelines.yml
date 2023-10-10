@@ -31,36 +31,29 @@
 #       yesNo: true # set to a non-boolean value to have the build fail
 
 
-# azure-pipeline.yml
+
 
 trigger: none
 
-
-
 stages:
-- stage: deploy_dev
-  # pool:
-  #   myagent  
+- stage: deploy_dev 
   jobs:
   - template: webapp-template.yml
     parameters:
       environment: 'dev'
-      appName: 'MyWebAppDev'
+      appName: 'dev_Wala'
+      agent: 'oki'
 
 - stage: deploy_staging
-  # pool:
-  #   myagent
   jobs:
   - template: webapp-template.yml
     parameters:
       environment: 'staging'
-      appName: 'MyWebAppStaging'
+      appName: 'Staging_Wala'
 
 - stage: deploy_production
-  # pool:
-  #   myagent
   jobs:
   - template: webapp-template.yml
     parameters:
       environment: 'production'
-      appName: 'MyWebAppProd'
+      appName: 'Prod_Wala'
