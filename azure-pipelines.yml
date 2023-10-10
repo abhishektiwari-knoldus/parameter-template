@@ -11,11 +11,11 @@ extends:
     testSet:
     - job: positive_test
       templateContext:
-        expectedHTTPResponseCode: 200
+        expectedHTTPResponseCode: 201
       steps:
       - script: echo "Run positive test" 
     - job: negative_test
       templateContext:
-        expectedHTTPResponseCode: 500
+        expectedHTTPResponseCode: 501
       steps:
       - script: echo "Run negative test"
