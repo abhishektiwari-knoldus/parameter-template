@@ -21,11 +21,41 @@
 #       - script: echo "Run negative test"
 
 # File: azure-pipelines.yml
+# trigger: none
+# pool:
+#   myagent
+
+# extends:
+#   template: simple-param.yml
+#   parameters:
+#       yesNo: true # set to a non-boolean value to have the build fail
+
+
+# azure-pipeline.yml
+
 trigger: none
+
 pool:
   myagent
 
-extends:
-  template: simple-param.yml
-  parameters:
-      yesNo: true # set to a non-boolean value to have the build fail
+stages:
+- stage: deploy_dev
+  jobs:
+  - template: webapp-template.yml
+    parameters:
+      environment: 'dev'
+      appName: 'MyWebAppDev'
+
+- stage: deploy_staging
+  jobs:
+  - template: webapp-template.yml
+    parameters:
+      environment: 'staging'
+      appName: 'MyWebAppStaging'
+
+- stage: deploy_production
+  jobs:
+  - template: webapp-template.yml
+    parameters:
+      environment: 'production'
+      appName: 'MyWebAppProd'
