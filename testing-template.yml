@@ -9,10 +9,9 @@ jobs:
   - ${{ if eq(testJob.templateContext.expectedHTTPResponseCode, 200) }}:
     - job:
       steps: 
-      - powershell: 'Invoke-RestMethod -Uri https://blogs.msdn.microsoft.com/powershell/feed/ | Format-Table -Property Title, pubDate'
-      - ${{ testJob.steps }}    
+      - script: echo 'this is from template and job 1 for 200'  
   - ${{ if eq(testJob.templateContext.expectedHTTPResponseCode, 500) }}:
     - job:
       steps:
-      - powershell: 'Get-ChildItem -Path Env:\'
-      - ${{ testJob.steps }}
+      - script: echo 'this is from template and job 2 for 500'
+      #- ${{ testJob.steps }}
