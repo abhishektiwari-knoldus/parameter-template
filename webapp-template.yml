@@ -9,6 +9,10 @@ parameters:
     - 'dev'
     - 'staging'
     - 'production'
+- name: agent
+  displayName: 'agent_name'
+  type: string
+  default: 'myagent'
 
 - name: appName
   displayName: 'Application Name'
@@ -18,7 +22,7 @@ jobs:
 - job: build_and_deploy
   displayName: 'Build and Deploy'
   pool:
-    vmImage: 'windows-latest'
+    ${{ parameters.agent}}
   steps:
   - script: |
       echo "Building and deploying ${{ parameters.appName }} to ${{ parameters.environment }}"
