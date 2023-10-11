@@ -35,10 +35,18 @@
 
 trigger: none
 
+resources:
+ repositories:
+   - repository: test_template
+     type: github
+     name: abhishektiwari-knoldus/pipeline-terrafrom-integration
+     ref: 'ok_report'
+     endpoint: 'Abhishek'
+
 stages:
 - stage: deploy_dev 
   jobs:
-  - template: webapp-template.yml
+  - template: webapp-template.yml@test_template
     parameters:
       environment: 'dev'
       appName: 'dev_Wala'
