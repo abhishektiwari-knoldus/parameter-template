@@ -46,7 +46,7 @@ resources:
 stages:
 - stage: deploy_dev 
   jobs:
-  - template: webapp-template.yml@template
+  - template: webapp-template.yml
     parameters:
       environment: 'dev'
       appName: 'dev_Wala'
