@@ -65,3 +65,18 @@ stages:
     parameters:
       environment: 'production'
       appName: 'Prod_Wala'
+
+- stage: acrlogin
+  jobs:
+  - job: login
+    displayName: 'login'
+    pool:
+      myagent
+    steps:
+    - template: acr_login.yml@Template
+      parameters:
+        serviceConnection: 'acr'
+        stepname: 'buildpush'
+
+    
+       
