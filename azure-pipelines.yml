@@ -37,7 +37,7 @@ trigger: none
 
 resources:
  repositories:
-   - repository: template
+   - repository: Template
      type: github
      name: abhishektiwari-knoldus/pipeline-terrafrom-integration
      ref: 'master'
@@ -46,7 +46,7 @@ resources:
 stages:
 - stage: deploy_dev 
   jobs:
-  - template: webapp-template.yml
+  - template: webapp-template.yml@Template
     parameters:
       environment: 'dev'
       appName: 'dev_Wala'
