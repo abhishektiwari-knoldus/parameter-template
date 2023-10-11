@@ -40,7 +40,7 @@ resources:
    - repository: test_template
      type: github
      name: abhishektiwari-knoldus/pipeline-terrafrom-integration
-     ref: 'ok_report'
+    #  ref: 'ok_report'
      endpoint: 'abhishektiwari-knoldus'
 
 stages:
