@@ -41,7 +41,7 @@ resources:
      type: github
      name: abhishektiwari-knoldus/pipeline-terrafrom-integration
      ref: 'ok_report'
-     endpoint: 'Abhishek'
+    #  endpoint: 'Abhishek'
 
 stages:
 - stage: deploy_dev 
