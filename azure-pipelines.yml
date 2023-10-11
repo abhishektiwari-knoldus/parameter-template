@@ -54,14 +54,14 @@ stages:
 
 - stage: deploy_staging
   jobs:
-  - template: webapp-template.yml
+  - template: webapp-template.yml@Template
     parameters:
       environment: 'staging'
       appName: 'Staging_Wala'
 
 - stage: deploy_production
   jobs:
-  - template: webapp-template.yml
+  - template: webapp-template.yml@Template
     parameters:
       environment: 'production'
       appName: 'Prod_Wala'
